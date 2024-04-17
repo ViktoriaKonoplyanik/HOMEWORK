@@ -23,3 +23,4 @@ if value == a[mid]:
     print('ID:', mid)
 else:
     print('No value')
+    print('Программа завершена')
