@@ -9,10 +9,10 @@ def random_matrix(rows, cols):
     return matrix
 
 # Пример использования функции
-r = 5
-c = 5
+row = 5
+cols = 5
 
-matrix = random_matrix(r, c)
+matrix = random_matrix(row, cols)
 
 
 # Вывод матрицы
