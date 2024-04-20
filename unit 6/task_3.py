@@ -9,6 +9,6 @@ def check_the_number(number):
 
 num = int(input("Введите число: "))
 if check_the_number(num):
-    print(f"{num} - простое число")
+    print(f"{num} - Простое число")
 else:
-    print(f"{num} - не является простым числом")
+    print(f"{num} - Не является простым числом")
