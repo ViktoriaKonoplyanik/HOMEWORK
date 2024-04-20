@@ -9,7 +9,7 @@ num2 = int(input("Введите второе число: "))
 
 
 result = gcd(num1, num2)
-print(f"НОД чисел {num1} и {num2} равен {result}")
+print(f"НОД чисел {num1} И {num2} равен {result}")
 
 
 
