@@ -29,5 +29,5 @@ for row in matrix_1:
 
 print("Общая сумма:", total_sum)
 print("Процент суммы в каждом столбце:")
-for i, percentage in enumerate(column_percentages):
-    print(f"Столбец {i+1}: {percentage:.2f}%")
+for i, p in enumerate(column_percentages):
+    print(f"Столбец {i+1}: {p:.2f}%")
