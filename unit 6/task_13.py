@@ -1,9 +1,8 @@
-import random
 
+import random
 
 def multiplying_columns(rows, cols):
     matrix = []
-    l = 3
 
     print('Начальная матрица:')
     for _ in range(rows):
@@ -11,17 +10,27 @@ def multiplying_columns(rows, cols):
         matrix.append(row)
         print(row)
 
-    for i in range(rows):
-        for j in range(cols):
-            if i != l:
-                matrix[i][j] += matrix[l][j]
+    def sum_diagonals(matrix):
+
+        rows = len(matrix)
+        cols = len(matrix[0])
+
+        sum_main_diagonal = 0
+        sum_secondary_diagonal = 0
+        for i in range(min(rows, cols)):
+            sum_main_diagonal += matrix[i][i]
+            sum_secondary_diagonal += matrix[i][cols - 1 - i]
+        return sum_main_diagonal, sum_secondary_diagonal
+
+
+    main_sum, secondary_sum = sum_diagonals(matrix)
+    print("Сумма главной диагонали:", main_sum)
+    print("Сумма побочной диагонали:", secondary_sum)
     return matrix
 
-rows = 5
+
+rows = 4
 cols = 4
 matrix = multiplying_columns(rows, cols)
 
-print("Матрица:")
-for row in matrix:
-  print(row)
 
