@@ -1,7 +1,7 @@
 import random
 
 
-def multiplying_columns(rows, cols):
+def adding_strings(rows, cols):
     matrix = []
     l = 3
 
@@ -19,7 +19,7 @@ def multiplying_columns(rows, cols):
 
 rows = 5
 cols = 4
-matrix = multiplying_columns(rows, cols)
+matrix = adding_strings(rows, cols)
 
 print("Матрица:")
 for row in matrix:
