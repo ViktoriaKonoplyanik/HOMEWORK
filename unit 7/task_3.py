@@ -7,4 +7,4 @@ strings = ['рвалдедлавр', 'лешанаполкеклопанашел
 palindromes = list(filter(find_palindrome, strings))
 
 print("Исходный список:", strings)
-print("Палиндромы:", palindromes)
+print("Палиндромы :", palindromes)
