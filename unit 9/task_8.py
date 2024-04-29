@@ -89,7 +89,7 @@ def filter_by_birth_year(data, year):
 def main():
     """Главная функция с интерактивным меню."""
 
-    # Создание JSON-файла с начальными данными, если он не существует
+    # Создание JSON-файла с начальными данными
     if not os.path.exists("employees.json"):
         initial_data = [
             {
