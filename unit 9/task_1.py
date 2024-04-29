@@ -3,63 +3,62 @@ import shutil
 import random
 import string
 
-def сортировка_файлов_по_расширению_с_переименованием(путь_к_папке):
-
-    имя_ос = os.name
+def sort_files_by_extension_with_rename(folder_path):
 
 
-    путь_текущей_директории = os.getcwd()
+
+    os_name = os.name
 
 
-    print("Операционная система:", имя_ос)
-    print("Текущая рабочая директория:", путь_текущей_директории)
+    current_directory = os.getcwd()
+
+    print("Operating system:", os_name)
+    print("Current working directory:", current_directory)
 
 
-    if not os.path.exists(путь_к_папке):
-        os.makedirs(путь_к_папке)
-        print(f"Папка '{путь_к_папке}' создана.")
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+        print(f"Folder '{folder_path}' created.")
 
-
-    расширения = ['.txt', '.pdf', '.jpg', '.docx']
+    extensions = ['.txt', '.pdf', '.jpg', '.docx']
     for i in range(5):
-        расширение = random.choice(расширения)
-        имя_файла = f"file_{i}{расширение}"
-        путь_к_файлу = os.path.join(путь_к_папке, имя_файла)
-        with open(путь_к_файлу, 'w') as f:
-            f.write("Пример содержимого файла")
-
-    # сортировка  по расширениям
-    for имя_файла in os.listdir(путь_к_папке):
-        путь_к_файлу = os.path.join(путь_к_папке, имя_файла)
-        if os.path.isfile(путь_к_файлу):
-            основа, расширение = os.path.splitext(имя_файла)
-            расширение = расширение.lower()
-
-            # Создаем подпапку, если она не существует
-            путь_к_подпапке = os.path.join(путь_к_папке, расширение[1:])
-            if not os.path.exists(путь_к_подпапке):
-                os.makedirs(путь_к_подпапке)
+        extension = random.choice(extensions)
+        file_name = f"file_{i}{extension}"
+        file_path = os.path.join(folder_path, file_name)
+        with open(file_path, 'w') as f:
+            f.write("Example file content")
 
 
-            shutil.move(путь_к_файлу, путь_к_подпапке)
+    for file_name in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, file_name)
+        if os.path.isfile(file_path):
+            base, extension = os.path.splitext(file_name)
+            extension = extension.lower()
 
 
-            файлы_в_подпапке = os.listdir(путь_к_подпапке)
-            if файлы_в_подпапке:
-                файл_для_переименования = random.choice(файлы_в_подпапке)
-                старое_имя = os.path.join(путь_к_подпапке, файл_для_переименования)
-                новое_имя = os.path.join(путь_к_подпапке, "переименованный_" + файл_для_переименования)
-                os.rename(старое_имя, новое_имя)
-                print(f"Файл '{старое_имя}' был переименован в '{новое_имя}'")
-
-    #  сводка о перемещенных файлах
-    for подпапка in os.listdir(путь_к_папке):
-        путь_к_подпапке = os.path.join(путь_к_папке, подпапка)
-        if os.path.isdir(путь_к_подпапке):
-            количество_файлов = len(os.listdir(путь_к_подпапке))
-            общий_размер = sum(os.path.getsize(os.path.join(путь_к_подпапке, f)) for f in os.listdir(путь_к_подпапке))
-            print(f"В  папку с {подпапка} файлами перемещено {количество_файлов} файлов, их суммарный размер - {общий_размер / 1024*3:.2f} ГБ")
+            subfolder_path = os.path.join(folder_path, extension[1:])
+            if not os.path.exists(subfolder_path):
+                os.makedirs(subfolder_path)
 
 
-путь_к_папке = "directory"
-сортировка_файлов_по_расширению_с_переименованием(путь_к_папке)
+            shutil.move(file_path, subfolder_path)
+
+
+            files_in_subfolder = os.listdir(subfolder_path)
+            if files_in_subfolder:
+                file_to_rename = random.choice(files_in_subfolder)
+                old_name = os.path.join(subfolder_path, file_to_rename)
+                new_name = os.path.join(subfolder_path, "renamed_" + file_to_rename)
+                os.rename(old_name, new_name)
+                print(f"File '{old_name}' was renamed to '{new_name}'")
+
+    for subfolder in os.listdir(folder_path):
+        subfolder_path = os.path.join(folder_path, subfolder)
+        if os.path.isdir(subfolder_path):
+            number_of_files = len(os.listdir(subfolder_path))
+            total_size = sum(os.path.getsize(os.path.join(subfolder_path, f)) for f in os.listdir(subfolder_path))
+            print(f"{number_of_files} files were moved to the folder with {subfolder} files, their total size is {total_size / 1024*3:.2f} GB")
+
+
+folder_path = "directory"
+sort_files_by_extension_with_rename(folder_path)
