@@ -28,3 +28,4 @@ lines = ['Hello', 'Hello', 'Hello', 'Hello']
 create_and_encrypt_file(file_name, lines)
 
 print(f"File '{file_name}' created and encrypted.")
+print('программа завершена')
