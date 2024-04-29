@@ -12,3 +12,4 @@ with open('students.txt', 'r') as f:
         surname, name, score = line.split()
         if float(score) < 3:
             print(f' Ниже 2 :{surname} {name}')
+            print('Программа завершена')
